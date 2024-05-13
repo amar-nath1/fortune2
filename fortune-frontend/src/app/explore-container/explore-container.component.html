@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <div style="display: flex; justify-content: space-around;align-items: center;">
+     <div>
+      <ion-icon class="ion-margin-top" name="person-circle-outline"></ion-icon>
+    <p class="user-email-text">
+      {{name}}
+    </p>
+     </div>
+      
+    <a (click)="logoutHandler()" color="primary">
+      Logout
+    </a>
+    </div>
+  </ion-toolbar>
+</ion-header>

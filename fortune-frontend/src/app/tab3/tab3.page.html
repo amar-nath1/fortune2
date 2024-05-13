@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      LEADERBOARD
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-text *ngIf="prem==false">Buy premium to see the leaderboard</ion-text>
+  
+  <ion-grid class="ion-margin" *ngIf="prem==true">
+    <ion-row>
+      <ion-col>
+        <b>All USERS</b>
+      </ion-col>
+      <ion-col>
+      <b> EXPENSE (RS.)</b>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let ex of leaderBoardArray">
+      <ion-col>{{ex.name}}</ion-col>
+      <ion-col>{{ex.totalAmount?ex.totalAmount:0}}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

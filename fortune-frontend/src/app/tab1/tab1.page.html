@@ -1,0 +1,117 @@
+<app-explore-container></app-explore-container>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header color="primary" class="ion-margin-vertical ion-text-center ion-padding">
+    
+    <ion-text [ngClass]="{'go-prem':premium==='Go premium'}" (click)="goPremiumHandler()">{{premium}}</ion-text>
+    
+  </ion-header>
+  <ion-select [(ngModel)]="filterType" (ionChange)="onFilterTypeChange()" label="Apply Filter" label-placement="floating" fill="outline">
+    <ion-select-option value="month">This Month</ion-select-option>
+    <ion-select-option value="year">This Year</ion-select-option>
+    <ion-select-option value="week">This Week</ion-select-option>
+  </ion-select>
+
+  <ion-grid class="ion-margin-horizontal">
+    <ion-row>
+      <ion-col class="ion-text-end" size="12">
+         
+        <ion-button [disabled]="premium=='Go premium'" id="view-downloads" (click)="viewDownloadsHandler()">View Download</ion-button>
+        <ion-button [disabled]="premium=='Go premium'" id="download" (click)="downloadDataHandler()">Download</ion-button>
+        
+      </ion-col>
+      <ion-popover trigger="view-downloads" triggerAction="click">
+        <ng-template>
+          <ion-content class="ion-padding">
+            <ion-list>
+              <div style="border-bottom: 1px solid grey;padding: 10px;" *ngFor="let url of allFileUrls; let i=index">
+               <ion-text>{{i+1}}. {{url['fileUrl']}}</ion-text>
+              <small> -> {{url['createdAt'] | date:'dd-MM-yyyy'}}</small>
+              </div>
+            </ion-list>
+          
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+
+      <ion-popover trigger="download" triggerAction="click">
+        <ng-template>
+          <ion-content class="ion-padding">{{expenseService.fileUrl}}</ion-content>
+        </ng-template>
+      </ion-popover>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-end" size="12">
+        <ion-select (ionChange)="onItemsPerPageChange()" [(ngModel)]="itemsPerPage" label="Items Per Page" placeholder="">
+          <ion-select-option value="5">5</ion-select-option>
+          <ion-select-option value="10">10</ion-select-option>
+          <ion-select-option value="15">15</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>Amount</ion-col>
+      <ion-col>Desc</ion-col>
+      <ion-col>Type</ion-col>
+      <ion-col>Action</ion-col>
+    </ion-row>
+     <ion-row *ngFor="let ex of expenseService.allExpense; let i =index">
+      
+    </ion-row> -->
+    <!-- <ion-row [ngClass]="i%2==0?'even-class':'odd-class'" *ngFor="let ex of expenseService.allExpense; let i =index">
+
+<ion-col class="date-class" size="12" *ngIf="showDateLabel(expenseService.allExpense[i-1],ex)">
+        <ion-label>{{ex.createdAt.split('T')[0] | date: 'dd-MM-yyyy'}}</ion-label>
+      </ion-col>
+
+      <ion-col size="1">{{page+i+1}}.</ion-col>
+
+      <ion-col [ngClass]="ex.income?'income-text':'expense-text'">{{ex.amount}}</ion-col>
+      <ion-col>{{ex.description}}</ion-col>
+      <ion-col>{{ex.type}}</ion-col>
+      <ion-col class="ion-text-center"> <ion-icon id="ex.id" (click)="deleteExpenseHandler(ex.id)" name="trash"></ion-icon> </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid> -->
+    <!-- <ion-row>
+      <ion-col class="ion-text-end"><ion-icon *ngIf="page!==0" (click)="getPrevExpenses()" name="caret-back-outline"></ion-icon></ion-col>
+      <ion-col size="1"></ion-col>
+      <ion-col><ion-icon *ngIf="expenseService.rowCount>page+expenseService.allExpense.length" (click)="getNextExpenses()" name="caret-forward-outline"></ion-icon></ion-col>
+    </ion-row>
+  </ion-grid>  -->
+
+  
+  <ion-card color="dark" class="my-card ion-margin">
+    <div class="card-header ion-text-center ion-margin-top">
+      <!-- <ion-avatar slot="start">
+        <img src="https://example.com/avatar.png" />
+      </ion-avatar> -->
+      <ion-title>FORTUNE CARD</ion-title>
+    </div>
+    <div class="card-body ">
+      <ion-text class="cardnb" color="medium">
+        {{cardNum}}
+      </ion-text>
+      <ion-icon class="ion-margin-start" name="copy-outline"></ion-icon>
+      <ion-grid class="buttons-grid">
+        <ion-row>
+          <ion-col size="4">
+            <ion-button (click)="goPremiumHandler()" expand="full">
+              BUY</ion-button>
+          </ion-col>
+          <ion-col class="ion-text-end" size="2">
+            <ion-label class="ion-margin-top count">{{countCard}}</ion-label>
+          </ion-col>
+          <ion-col size="3" class="ion-text-end">
+            <ion-button (click)="decrease()">-</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button (click)="increase()">+</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,99 @@
+
+:host{
+
+    .income-text{
+        color:green;
+    }
+    .expense-text{
+        color:red;
+    }
+
+   .even-class{
+    background-color: lightgrey;
+   }
+   .odd-class{
+    background-color: whitesmoke;
+   }
+   .date-class{
+    background-color: white !important;
+   }
+
+   .go-prem{
+    text-decoration: underline;
+    color: blue
+   }
+
+   .my-card {
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    // height: 12rem;
+    width: 35vw;
+    height: 30vh;
+    transform: translate(77%, 40%);
+  }
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .ion-grid {
+    margin-top: 10px;
+  }
+  
+  .ion-row {
+    justify-content: center;
+  }
+  
+  .ion-col {
+    text-align: center;
+  }
+  
+  .ion-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .ion-text-center {
+    text-align: center;
+  }
+  
+  .ion-icon {
+    font-size: 24px;
+  }
+  
+  .ion-icon-trophy {
+    color: #FFD700;
+  }
+  
+  .ion-icon-trophy:hover {
+    color: #FFDD00;
+  }
+  .count{
+    font-size: 2rem;
+  }
+
+  ion-button{
+    border: 2px solid #eee8aa;
+    --background: black;
+    
+  }
+  ion-label{
+    padding-top: 12px;
+  }
+
+  .buttons-grid{
+    margin-top: 2rem;
+  }
+  .cardnb{
+    letter-spacing: 5px;
+  }
+
+}
