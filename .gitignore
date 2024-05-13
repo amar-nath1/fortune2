@@ -78,3 +78,5 @@ environment.ts
 environment.prod.ts
 
 package-lock.json
+
+migrations

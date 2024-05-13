@@ -1,0 +1,46 @@
+const express=require('express')
+require('dotenv').config();
+const fs=require('fs')
+const path=require('path')
+const helmet =require('helmet')
+const compression=require('compression')
+const morgan=require('morgan')
+const db=require('./util/database')
+const ur=require('./routes/authRoutes')
+const er=require('./routes/expenseRoutes')
+const pr=require('./routes/premiumRoutes')
+const Expense=require('./models/expense')
+const User=require('./models/user')
+const Order=require('./models/order')
+const ResetPassword=require('./models/forgotpassword')
+const FileUrl=require('./models/fileUrl')
+const cors=require('cors')
+const app=express()
+app.use(helmet())
+app.use(compression())
+const accessLogStream=fs.createWriteStream(path.join(__dirname,'access.log'),{flags:'a'})
+app.use(morgan('combined',{stream:accessLogStream,
+    skip: function (req, res) { return res.statusCode < 400 }
+}))
+app.use(cors())
+app.use(express.json())
+app.use(ur.routes)
+app.use(er.routes)
+app.use(pr.routes)
+
+User.hasMany(Expense)
+
+Expense.belongsTo(User)
+User.hasMany(Order)
+Order.belongsTo(User)
+User.hasMany(ResetPassword)
+ResetPassword.belongsTo(User)
+User.hasMany(FileUrl)
+FileUrl.belongsTo(User)
+db.sync().then(()=>{
+    app.listen(4000,()=>{
+        console.log('listening to whatver ', process.env.PORT)
+    })
+}).catch((err)=>{
+    console.log(err)
+})
